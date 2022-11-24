@@ -18,7 +18,7 @@ export class HomepageComponent {
     }
   DisplayHello(eventArgs:any){
 
-    alert('Hello World');
+    alert('Wrong Password');
   }
 
 }
