@@ -109,7 +109,7 @@ export class commentmakerService {
     const newUser = {
       name: userId,firstName: firstName,lastName: lastName,emailAddress: emailAddress,password: password};
   
-    return this.httpClient.post<DogHandler>(`${environment.serverEndpoint}/Users`,newUser);
+    return this.httpClient.post<DogHandler>(`${environment.serverEndpoint}/Users`,newUser)
       .pipe(
         catchError(error => {
           // handle the error and return an observable with the error message

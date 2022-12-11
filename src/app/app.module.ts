@@ -20,6 +20,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 //import { HighlightDirective } from './directives/highlight.directive';
 //import { HtmlPlayComponent } from './html-play/html-play.component';
 import { AppendHtmlDirective } from './directives/append-html.directives.directive';
+import { commentmakerService } from './services/commentmaker.service';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { AppendHtmlDirective } from './directives/append-html.directives.directi
 AppendHtmlDirective,
     
   ],
+  bootstrap: [ AppComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -51,7 +53,9 @@ AppendHtmlDirective,
     MatSnackBarModule,
     MatCardModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    commentmakerService
+  ]
+  
 })
 export class AppModule { }

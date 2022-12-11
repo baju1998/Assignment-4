@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { NewdogComponent } from './newdog/newdog.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGService } from './services/authg.service';
+import { commentmakerService } from './services/commentmaker.service';
 import { UserManagementComponent } from './user-management/user-management.component';
 
 
@@ -39,7 +40,8 @@ const routes: Routes = [
   },
   {
     path:'Register',
-    component: RegisterComponent
+    component: RegisterComponent,
+
   },
   /*{
     path:'html',
