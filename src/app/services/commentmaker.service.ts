@@ -5,7 +5,7 @@ import { Dog } from '../models/dog';
 import { DogHandler } from '../models/dog-handler';
 import { Token } from '../models/token';
 import { Users } from '../models/users';
-import { catchError, map, Observable, of } from 'rxjs';
+import { catchError, map, Observable, of, throwError } from 'rxjs';
 import jwt_decode from "jwt-decode";
 
 @Injectable({
@@ -84,7 +84,7 @@ export class commentmakerService {
 
   Login(userId:string, pwd:string)
   {
-    return this.httpClient.post<Token>(`${environment.serverEndpoint}/Handler/login`,{userName:userId,password:pwd});
+    return this.httpClient.post<Token>(`${environment.serverEndpoint}/Users/login`,{userName:userId,password:pwd});
   }
 
   SetCurrentUser(token:Token)
@@ -105,17 +105,17 @@ export class commentmakerService {
     this.userLoggedIn.emit(false);
   }
 
-  async CreateHandler(userId:String,firstName:String,lastName :String,emailAddress :String ,password:String): Promise<Observable<any>>
-  {
-
-    console.log("in service");
-    let newUser= {name:userId,firstName:firstName,lastName:lastName,emailAddress:emailAddress,password:password};
-    
-console.log("in service");
-console.log("in last");
-
-return this.httpClient.post<any>(`${environment.serverEndpoint}/Handler`,newUser); 
-        console.log("in last");
-
-}
+    createUser(userId: string, firstName: string, lastName: string, emailAddress: string, password: string) {
+    const newUser = {
+      name: userId,firstName: firstName,lastName: lastName,emailAddress: emailAddress,password: password};
+  
+    return this.httpClient.post<DogHandler>(`${environment.serverEndpoint}/Users`,newUser);
+      .pipe(
+        catchError(error => {
+          // handle the error and return an observable with the error message
+          return throwError(error.message);
+        })
+      );
+  }
+  
 }
