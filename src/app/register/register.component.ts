@@ -20,16 +20,16 @@ export class RegisterComponent implements OnInit
       frmfirstName: new FormControl('', [Validators.required]),
       frmlastName: new FormControl('', [Validators.required]),
       frmemailAddress: new FormControl('', [Validators.required]),
-      frmPassword: new FormControl('', [Validators.required]),
+      frmpassword: new FormControl('', [Validators.required]),
     }
   );
-  tooltipBtn = "Click here to register";
+  tooltipBtn = "Here";
   constructor(private _snackBar: MatSnackBar, private commentmakerService: commentmakerService, private router:Router) { }
 
   ngOnInit(): void
   {
   }
-  RegisterUser()
+   async RegisterUser()
   {
 
     this.registrationFormGrp.markAllAsTouched();
@@ -46,15 +46,18 @@ export class RegisterComponent implements OnInit
     if(userId && firstName && lastName  && emailAddress && password)
      {
 
+console.log(userId);
+        console.log(firstName);
+        console.log(lastName);
+        console.log(emailAddress);
+        console.log(password);
 
-        console.log("Howdy");
-
-        this.commentmakerService.CreateHandler(userId,firstName,lastName,emailAddress,password).subscribe(
+       (await this.commentmakerService.CreateHandler(userId, firstName, lastName, emailAddress, password)).subscribe(
           {
-            next: (data: { userId: any; }) =>
+            next: (data: any) =>
             {
-              this._snackBar.open(`User: ${data.userId} has been created successfully`,'Close',{duration:3000});
-              this.router.navigate(['/Login',{userName:userId}]);
+              this._snackBar.open(`User: ${data} has been created successfully`,'Close',{duration:3000});
+              //this.router.navigate(['/Login',{userName:userId}]);
             },
             error: (err: { Message: string; })=>
             {

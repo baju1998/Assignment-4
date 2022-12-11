@@ -105,12 +105,17 @@ export class commentmakerService {
     this.userLoggedIn.emit(false);
   }
 
-  CreateHandler(userId:String,firstName:String,lastName :String,emailAddress :String ,password:String)
+  async CreateHandler(userId:String,firstName:String,lastName :String,emailAddress :String ,password:String): Promise<Observable<any>>
   {
 
     console.log("in service");
-    let newUser= {userId:userId,firstName:firstName,lastName:lastName,emailAddress:emailAddress,password:password};
+    let newUser= {name:userId,firstName:firstName,lastName:lastName,emailAddress:emailAddress,password:password};
+    
 console.log("in service");
-    return this.httpClient.post<DogHandler>(`${environment.serverEndpoint}/Handler`,newUser);
+console.log("in last");
+
+return this.httpClient.post<any>(`${environment.serverEndpoint}/Handler`,newUser); 
+        console.log("in last");
+
 }
 }
