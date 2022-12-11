@@ -1,15 +1,21 @@
-export class Dog{
-    
-
+export class Dog {
+    id:number=0;
+    createdDate:Date=new Date('');
+    title:string='';
+    content:string='';
     userId:string='';
-    firstName:string='';
-    lastName:string='';
-    emailAddress:string='';
-    password:string='';
-
+    lastUpdated:Date=new Date('');
+    imageUrl:string='';
+  
     
-    static IsItADogHandler(obj:any)
-    {
-        return obj.userId && obj.firstName && obj.lastName && obj.emailAddress && obj.password;
+
+    constructor(id:number,createdDate:Date,title:string, content:string, userId:string, lastUpdated:Date, imageUrl:string){
+        this.id = id;
+        this.createdDate= createdDate;
+        this.title=title;
+       this.content=content;
+        this.userId=userId;
+        this.lastUpdated=lastUpdated;
+        this.imageUrl=imageUrl;
     }
 }

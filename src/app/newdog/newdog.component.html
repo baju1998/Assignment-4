@@ -1,0 +1,19 @@
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label"><Title></Title></label>
+  <input type="text" [(ngModel)]="newDog.title" class="form-control" id="txtDogName" placeholder="Title">
+</div>
+
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Image</label>
+    <input type="url" [(ngModel)]="newDog.imageUrl" class="form-control" id="txgImage" placeholder="www.fido.jpg">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Comment</label>
+    <input type="text" [(ngModel)]="newDog.content" class="form-control" id="txtBreed" placeholder="Comment to post">
+  </div>
+  
+  
+  <button type="button" class="btn btn-warning" (click)="MakeMeADog()">Make me a Dog</button>
+
+  

@@ -1,0 +1,45 @@
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="registrationFormGrp" class="example-form">
+
+      <mat-form-field class appearance="fill">
+        <mat-label>userId</mat-label>
+        <input type="text" matInput formControlName="frmuserId" placeholder="User Id">
+        
+      
+      </mat-form-field>
+      <br/>
+
+
+      <mat-form-field class appearance="fill">
+        <mat-label>utext</mat-label>
+        <input type="text" matInput formControlName="frmfirstName" placeholder="User Id">
+       
+    </mat-form-field>&nbsp;
+      <mat-form-field class appearance="fill">
+        <mat-label>userId</mat-label>
+        <input type="text" matInput formControlName="frmlastName" placeholder="User Id">
+       
+    </mat-form-field>&nbsp;
+      <mat-form-field class appearance="fill">
+        <mat-label>userId</mat-label>
+        <input type="text" matInput formControlName="frmemailAddress" placeholder="User Id">
+        
+    </mat-form-field>&nbsp;
+      <mat-form-field class appearance="fill">
+        <mat-label>userId</mat-label>
+        <input type="text" matInput formControlName="frmpassword" placeholder="User Id">
+        
+    </mat-form-field>
+    <br/>
+      <button (click)="RegisterUser()" mat-fab aria-label="Example icon button with a heart icon">
+        <mat-icon [matTooltip]="tooltipBtn">Reg</mat-icon>
+    </button>
+
+
+            <button (click)="Clear()" mat-fab aria-label="Example icon button with a heart icon">
+                <mat-icon matTooltip="Clear Form">delete_sweep</mat-icon>
+            </button>
+          </form>
+          </mat-card-content>
+        </mat-card> 

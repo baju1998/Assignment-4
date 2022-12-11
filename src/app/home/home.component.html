@@ -1,0 +1,17 @@
+<div class="container text-center">
+    <div class="row">
+      <div #MyDiv class="col" *ngFor="let currentDog of myDogArray">
+        <app-dogcard [CurrentDog]="currentDog" [color]="color" ></app-dogcard>
+      <!--
+        <app-dogcard [CurrentDog]="myDogArray[0]" *ngIf="!myDogArray[0].muzzle"></app-dogcard>
+      </div>
+      <div class="col">
+        <app-dogcard [CurrentDog]="myDogArray[1]" *ngIf="!myDogArray[1].muzzle"></app-dogcard>
+      </div>
+      <div class="col">
+        <app-dogcard [CurrentDog]="myDogArray[2]" *ngIf="!myDogArray[2].muzzle"></app-dogcard>
+      </div>
+      -->
+      
+    </div>
+</div>
