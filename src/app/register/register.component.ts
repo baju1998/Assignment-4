@@ -14,7 +14,7 @@ import { commentmakerService } from '../services/commentmaker.service';
 export class RegisterComponent implements OnInit
 {
   responseError=false;
-  ErrorMsg='';
+  ErrorMsg='';  
   emailFormControl = new FormControl('lol@lol.com', [Validators.required, Validators.email]);
   registrationFormGrp = new FormGroup(
     {
