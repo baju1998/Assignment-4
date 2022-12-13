@@ -1,26 +1,71 @@
-<form [formGroup]="registrationFormGrp" (ngSubmit)="  RegisterUser()
-">
-  <mat-form-field>
-    <input type="text" matInput placeholder="User ID" formControlName="frmuserId" required>
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <input type="text" matInput placeholder="First Name" formControlName="frmfirstName" required>
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <input type="text" matInput placeholder="Last Name" formControlName="frmlastName" required>
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <input type="email" matInput placeholder="Email" formControlName="frmemailAddress" required>
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <input type="password" matInput placeholder="Password" formControlName="frmpassword" required>
-  </mat-form-field>
-  <br>
-  <button mat-raised-button color="primary" type="submit">Submit</button>
-</form>
+<mat-card>
+  <mat-card-title>
+    Register New User
+  </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="registrationFormGrp" class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>User id</mat-label>
+              <input type="text" matInput formControlName="frmuserId" placeholder="John Smith">
+              <mat-error *ngIf="registrationFormGrp.get('frmuserId')!.hasError('required')">
+                Name is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="responseError">
+                {{ErrorMsg}}
+              </mat-error>
+            </mat-form-field>
+            <br/>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input type="text" matInput formControlName="frmfirstName" placeholder="John">
+                <mat-error *ngIf="registrationFormGrp.get('frmfirstName')!.hasError('required')">
+                  Name is <strong>required</strong>
+                </mat-error>
+
+              </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>LastName</mat-label>
+                  <input type="text" matInput formControlName="frmlastName" placeholder="Smith">
+                  <mat-error *ngIf="registrationFormGrp.get('frmlastName')!.hasError('required')">
+                    Name is <strong>required</strong>
+                  </mat-error>
+
+                </mat-form-field>
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Email address</mat-label>
+                    <input type="text" matInput formControlName="frmemailAddress" placeholder="@gmail.com">
+                    <mat-error *ngIf="registrationFormGrp.get('frmemailAddress')!.hasError('required')">
+                      Name is <strong>required</strong>
+                    </mat-error>
+
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput formControlName="frmpassword" placeholder="h4ck3r">
+                <mat-error *ngIf="registrationFormGrp.get('frmpassword')!.hasError('required')">
+                  Name is <strong>required</strong>
+                </mat-error>
+            <br/>
+
+<div>
+
+
+
+
+</div>
+
+            <button (click)="RegisterUser()" mat-fab aria-label="Example icon button with a heart icon">
+                <mat-icon [matTooltip]="tooltipBtn">how_to_reg</mat-icon>
+            </button>
+            <button (click)="Clear()" mat-fab aria-label="Example icon button with a heart icon">
+                <mat-icon matTooltip="Clear Form">delete_sweep</mat-icon>
+            </button>
+          </mat-form-field>
+          </form>
+
+        </mat-card-content>
+    
+</mat-card>
+
 
 

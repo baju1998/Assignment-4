@@ -7,6 +7,8 @@ import { Token } from '../models/token';
 import { Users } from '../models/users';
 import { catchError, map, Observable, of, throwError } from 'rxjs';
 import jwt_decode from "jwt-decode";
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Injectable({
   providedIn: 'root'
@@ -109,13 +111,7 @@ export class commentmakerService {
     const newUser = {
       name: userId,firstName: firstName,lastName: lastName,emailAddress: emailAddress,password: password};
   
-    return this.httpClient.post<DogHandler>(`${environment.serverEndpoint}/Users`,newUser)
-      .pipe(
-        catchError(error => {
-          // handle the error and return an observable with the error message
-          return throwError(error.message);
-        })
-      );
+    return this.httpClient.post<DogHandler>(`${environment.serverEndpoint}/Users`,newUser);
   }
   
 }

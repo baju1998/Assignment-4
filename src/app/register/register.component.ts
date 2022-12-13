@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
+import { DogHandler } from '../models/dog-handler';
 import { commentmakerService } from '../services/commentmaker.service';
 
 @Component({
@@ -54,8 +56,9 @@ console.log(userId);
 
        this.commentmakerService.createUser(userId, firstName, lastName, emailAddress, password).subscribe (
           {
-            next: (data) =>
+            next: (data:any) =>
             {
+              
               this._snackBar.open(`User: ${data.userId} has been created successfully`,'Close',{duration:3000});
               this.router.navigate(['/Login',{userName:userId}]);
             },

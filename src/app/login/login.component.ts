@@ -10,20 +10,20 @@ import { commentmakerService } from '../services/commentmaker.service';
 export class LoginComponent  implements OnInit  {
   constructor(private dogKeeperSvc:commentmakerService, private router:Router, private activatedRoute:ActivatedRoute) { }
 
-  userName='';
+  userId='';
   password='';
   errorOccured=false;
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params)=>{
       console.log(params);
-      this.userName=params['userName'];
+      this.userId=params['userId'];
     });
 
   }
 
   Login()
   {
-    this.dogKeeperSvc.Login(this.userName, this.password).subscribe({
+    this.dogKeeperSvc.Login(this.userId, this.password).subscribe({
       next: (data) => {
         this.dogKeeperSvc.SetCurrentUser(data);
         console.log(data);
